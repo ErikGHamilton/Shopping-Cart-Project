@@ -78,7 +78,18 @@ while not initial_input_false:
 
 
 input_array = [initial_input]
-input_2 = 12
-input_array.append(input_2)
-input_array.append(3)
+
+finished_entering = False
+while not finished_entering:
+    clerk_input = input("Please Enter The Product ID Number:")
+    if clerk_input == "done" or clerk_input == "DONE" or clerk_input == "Done":
+        finished_entering = True
+    else:
+        int_clerk_input = int(clerk_input)
+    if initial_input > numproducts or initial_input < 0:
+        print("Please Enter a Valid ID Number:")
+    else:
+        input_array.append(int_clerk_input)
+
+
 print(input_array)
