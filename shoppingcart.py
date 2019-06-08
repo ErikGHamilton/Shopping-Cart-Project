@@ -1,5 +1,5 @@
 # SHOPPING CART PROGRAM
-
+import time
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -30,7 +30,9 @@ print("")
 print("---------------------")
 print("There are 20 Products")
 print("---------------------")
+print("Enter The Product IDs and Type 'Done' When Finished")
 print("")
+time.sleep(0.5)
 
 def prod_id(product):
     return product['id']
@@ -86,10 +88,50 @@ while not finished_entering:
         finished_entering = True
     else:
         int_clerk_input = int(clerk_input)
-    if initial_input > numproducts or initial_input < 0:
+    if int_clerk_input > numproducts or int_clerk_input < 0:
         print("Please Enter a Valid ID Number:")
     else:
         input_array.append(int_clerk_input)
 
 
-print(input_array)
+#print(input_array)
+num_entered = len(input_array)
+#print(num_entered)
+#print(input_array[0])
+
+print("")
+print("")
+print("")
+
+print("----------------------------")
+print("   Erik's Awesome Bodega    ")
+print(" www.eriksawesomebodega.com ")
+print("----------------------------")
+print(" CHECKOUT AT PUT THE TIME THINGY HERE")
+print("----------------------------")
+print("PRODUCTS:")
+print("")
+
+totalprice = 0
+loopcount = 0
+#print(input_array[loopcount])
+#item = input_array[loopcount] - 1
+#print(item)
+
+while loopcount < num_entered:
+    item = input_array[loopcount] - 1
+    print(" + ", products2[item]['name'],"  $", products2[item]['price'])
+    loopprice = float(products2[item]['price'])
+    totalprice = totalprice + loopprice
+
+    loopcount = loopcount + 1
+
+print("----------------------------")
+totalprice = round(totalprice,2)
+print("SUBTOTAL: $",totalprice)
+tax = round(totalprice * 0.0875,2)
+print("TAX: $",tax)
+grandtotal = round(totalprice + tax,2)
+print("GRAND TOTAL: $", grandtotal)
+print("----------------------------")
+print("")
