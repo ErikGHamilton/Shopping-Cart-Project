@@ -32,6 +32,9 @@ print("There are 20 Products")
 print("---------------------")
 print("")
 
+def prod_id(product):
+    return product['id']
+
 def prod_name(product):
     return product['name']
 
@@ -44,14 +47,38 @@ def prod_aisle(product):
 def prod_price(product):
     return product['price']
 
-products2 = sorted(products, key=prod_name)
+products2 = sorted(products, key=prod_id)
+numproducts = len(products)
+
 #print("test")
-#print(products2[0]['name'], products2[0]['price'])
+#print(products2[3]['name'], products2[3]['price']) #sorted by id, print name/price
 
-prod_count = 0
 
-while prod_count < 20:    #put in a variable here later that counts the number of products
-    print("   + ",products2[prod_count]['name'],"-",products2[prod_count]['price'])
-    prod_count = prod_count + 1
+# HIDDEN/minized- Printing all twenty - here for reference
+    #remove indent if you want to use
+    #print(numproducts)
+    #print("")
+    #
+    #prod_count = 0
+    #while prod_count < numproducts:    #put in a variable here later that counts the number of products
+    #    print("   + ",products2[prod_count]['name'],"-",products2[prod_count]['price'])
+    #    prod_count = prod_count + 1
+    #
+    #print("")
+    #
 
-print("")
+
+initial_input_false = False
+while not initial_input_false:
+    initial_input = int(input("Please Enter The Product ID Number:"))
+    if initial_input > numproducts or initial_input < 0:
+        print("Please Enter a Valid ID Number:")
+    else:
+        initial_input_false = True
+
+
+input_array = [initial_input]
+input_2 = 12
+input_array.append(input_2)
+input_array.append(3)
+print(input_array)
