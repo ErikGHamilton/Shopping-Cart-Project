@@ -52,28 +52,21 @@ def prod_price(product):
 products2 = sorted(products, key=prod_id)
 numproducts = len(products)
 
+id_list = []
+for i in products2:
+    id_list.append(i['id'])
+
+#print(id_list)
 #print("test")
 #print(products2[3]['name'], products2[3]['price']) #sorted by id, print name/price
 
 
-# HIDDEN/minized- Printing all twenty - here for reference
-    #remove indent if you want to use
-    #print(numproducts)
-    #print("")
-    #
-    #prod_count = 0
-    #while prod_count < numproducts:    #put in a variable here later that counts the number of products
-    #    print("   + ",products2[prod_count]['name'],"-",products2[prod_count]['price'])
-    #    prod_count = prod_count + 1
-    #
-    #print("")
-    #
-
+print(id_list)
 
 initial_input_false = False
 while not initial_input_false:
     initial_input = int(input("Please Enter The Product ID Number:"))
-    if initial_input > numproducts or initial_input < 0:
+    if initial_input not in id_list:
         print("Please Enter a Valid ID Number:")
     else:
         initial_input_false = True
@@ -87,11 +80,26 @@ while not finished_entering:
     if clerk_input == "done" or clerk_input == "DONE" or clerk_input == "Done":
         finished_entering = True
     else:
+        pass
+    if clerk_input in id_list:
         int_clerk_input = int(clerk_input)
-    if int_clerk_input > numproducts or int_clerk_input < 0:
-        print("Please Enter a Valid ID Number:")
-    else:
         input_array.append(int_clerk_input)
+    else:
+        print("Please Enter A Valid ID Number")
+        #WHY ISNT THIS WORKING
+        
+
+#original function
+#while not finished_entering:
+#    clerk_input = input("Please Enter The Product ID Number:")
+#    if clerk_input == "done" or clerk_input == "DONE" or clerk_input == "Done":
+#        finished_entering = True
+#    else:
+#        int_clerk_input = int(clerk_input)
+#    if int_clerk_input > numproducts or int_clerk_input < 0:
+#        print("Please Enter a Valid ID Number:")
+#    else:
+#        input_array.append(int_clerk_input)
 
 
 #print(input_array)
