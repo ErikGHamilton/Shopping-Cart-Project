@@ -62,16 +62,7 @@ for i in products2:
 #print(products2[3]['name'], products2[3]['price']) #sorted by id, print name/price
 
 
-#print(id_list)
-
-#initial_input_false = False
-#while not initial_input_false:
-#    initial_input = int(input("Please Enter The Product ID Number:"))
-#    if initial_input not in id_list:
-#        print("Please Enter a Valid ID Number:")
-#    else:
-#        initial_input_false = True
-#
+# BEGIN THE LOOP OF ASKING FOR INPUTS
 
 input_array = []
 
@@ -89,24 +80,12 @@ while not finished_entering:
         print("Please Enter A Valid ID Number")
        
         
-
-#original function
-#while not finished_entering:
-#    clerk_input = input("Please Enter The Product ID Number:")
-#    if clerk_input == "done" or clerk_input == "DONE" or clerk_input == "Done":
-#        finished_entering = True
-#    else:
-#        int_clerk_input = int(clerk_input)
-#    if int_clerk_input > numproducts or int_clerk_input < 0:
-#        print("Please Enter a Valid ID Number:")
-#    else:
-#        input_array.append(int_clerk_input)
-
-
-#print(input_array)
 num_entered = len(input_array)
 #print(num_entered)
 #print(input_array[0])
+
+
+# BEGIN PRINTING THE RECEIPT
 
 current_time = datetime.datetime.now()
 
@@ -125,9 +104,8 @@ print("")
 
 totalprice = 0
 loopcount = 0
-#print(input_array[loopcount])
-#item = input_array[loopcount] - 1
-#print(item)
+
+# BEGIN PRINTING THE SPECIFIC ITEMS AND CALCULATING THE PRICES
 
 while loopcount < num_entered:
     item = input_array[loopcount] - 1
