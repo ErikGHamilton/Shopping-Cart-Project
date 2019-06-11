@@ -1,5 +1,6 @@
 # SHOPPING CART PROGRAM
 import time
+import datetime
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -61,18 +62,18 @@ for i in products2:
 #print(products2[3]['name'], products2[3]['price']) #sorted by id, print name/price
 
 
-print(id_list)
+#print(id_list)
 
-initial_input_false = False
-while not initial_input_false:
-    initial_input = int(input("Please Enter The Product ID Number:"))
-    if initial_input not in id_list:
-        print("Please Enter a Valid ID Number:")
-    else:
-        initial_input_false = True
+#initial_input_false = False
+#while not initial_input_false:
+#    initial_input = int(input("Please Enter The Product ID Number:"))
+#    if initial_input not in id_list:
+#        print("Please Enter a Valid ID Number:")
+#    else:
+#        initial_input_false = True
+#
 
-
-input_array = [initial_input]
+input_array = []
 
 finished_entering = False
 while not finished_entering:
@@ -81,12 +82,12 @@ while not finished_entering:
         finished_entering = True
     else:
         pass
-    if clerk_input in id_list:
+    if clerk_input in str(id_list):
         int_clerk_input = int(clerk_input)
         input_array.append(int_clerk_input)
     else:
         print("Please Enter A Valid ID Number")
-        #WHY ISNT THIS WORKING
+       
         
 
 #original function
@@ -107,6 +108,8 @@ num_entered = len(input_array)
 #print(num_entered)
 #print(input_array[0])
 
+current_time = datetime.datetime.now()
+
 print("")
 print("")
 print("")
@@ -115,7 +118,7 @@ print("----------------------------")
 print("   Erik's Awesome Bodega    ")
 print(" www.eriksawesomebodega.com ")
 print("----------------------------")
-print(" CHECKOUT AT PUT THE TIME THINGY HERE")
+print(str(current_time))
 print("----------------------------")
 print("PRODUCTS:")
 print("")
@@ -128,18 +131,19 @@ loopcount = 0
 
 while loopcount < num_entered:
     item = input_array[loopcount] - 1
-    print(" + ", products2[item]['name'],"  $", products2[item]['price'])
+    print(" + ", products2[item]['name'],"  $" + str(products2[item]['price'])) 
     loopprice = float(products2[item]['price'])
     totalprice = totalprice + loopprice
 
     loopcount = loopcount + 1
 
+print("")
 print("----------------------------")
 totalprice = round(totalprice,2)
-print("SUBTOTAL: $",totalprice)
+print("SUBTOTAL: $" + str(totalprice))
 tax = round(totalprice * 0.0875,2)
-print("TAX: $",tax)
+print("TAX: $" + str(tax))
 grandtotal = round(totalprice + tax,2)
-print("GRAND TOTAL: $", grandtotal)
+print("GRAND TOTAL: $" + str(grandtotal))
 print("----------------------------")
 print("")
